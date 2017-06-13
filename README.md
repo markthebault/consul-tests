@@ -12,7 +12,11 @@ Based on 3 docker-machine a consul services, registrator service and dnsmasq ser
 
 # Try it !
 Get consul services `$ curl $(docker-machine ip swarm-1):8500/v1/catalog/services`
+
+
 Test DNS service `$ dig @$(docker-machine ip swarm-1) consul.service.dc1.consul`
+
+
 Registrator test:
 ```
 $ docker $(docker-machine config swarm-1) run -d -P redis
