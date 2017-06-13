@@ -1,0 +1,24 @@
+version: "3"
+services:
+  httpd:
+    image: httpd:alpine
+    labels: [app=httpd,type=app]
+    ports:
+      - 8080:80
+    environment:
+      - SERVICE_NAME=web-server
+      - SERVICE_TAGS=http,type=app,name=web-server
+    deploy:
+      replicas: 1
+      resources:
+          reservations:
+              memory: 128M
+      restart_policy:
+          condition: on-failure
+          delay: 5s
+          max_attempts: 3
+          window: 120s
+      update_config:
+          parallelism: 1
+          delay: 10s
+          failure_action: continue

@@ -1,5 +1,5 @@
 #!/bin/bash
-source variable.cfg
+source variables.cfg
 
 
 #boostrap first consul
@@ -29,7 +29,7 @@ for i in $(seq 1 $NODES); do
         --net=host \
         --volume=/var/run/docker.sock:/tmp/docker.sock \
         gliderlabs/registrator:latest \
-          consul://localhost:8500
+          -internal consul://localhost:8500
 done
 
 

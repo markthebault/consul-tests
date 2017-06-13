@@ -1,5 +1,5 @@
 #!/bin/bash
-source variable.cfg
+source variables.cfg
 
 
 

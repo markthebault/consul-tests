@@ -1,5 +1,5 @@
 #!/bin/bash
-source variable.cfg
+source variables.cfg
 
 
 for i in $(seq 1 $NODES); do
