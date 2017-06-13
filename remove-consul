@@ -1,0 +1,8 @@
+#!/bin/bash
+source variable.cfg
+
+
+for i in $(seq 1 $NODES); do
+    eval $(docker-machine env swarm-$i)
+    docker rm -f dnsmasq consul registrator
+done
